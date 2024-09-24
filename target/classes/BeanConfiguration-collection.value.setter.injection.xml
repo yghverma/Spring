@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="collectionId" class="com.pack.collection.injection.CollectionExample">
+		<property name="nameList">
+			<list>
+				<value>Ram</value>
+				<value>Sam</value>
+				<value>Sam</value>
+				<value>Tam</value>
+			</list>
+		</property>
+		<property name="nameSet">
+			<list>
+				<value>Yogesh</value>
+				<value>Manyata</value>
+				<value>Tanisha</value>
+				<value>Bro</value>
+			</list>
+		</property>
+		<property name="nameMap">
+			<map>
+				<entry key="1" value="Ram" />
+				<entry key="2" value="Sam" />
+			</map>
+		</property>
+		<property name="nameProperty">
+			<props>
+				<prop key="one">Ram</prop>
+				<prop key="two">Sam</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>

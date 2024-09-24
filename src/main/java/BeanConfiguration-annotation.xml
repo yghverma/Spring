@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<!--Auto wire by default =none using ref-->
+<!--	<bean id="stud" class="com.pack.reference.Student">
+		<property name="id" value="80"/>
+		<property name="name" value="Yogesh"/>
+		<property name="age" value="10"/>
+		<property name="address" ref="add" />
+	</bean>
+	
+	<bean id="add" class="com.pack.reference.Address">
+		<property name="city" value="Hisar"/>
+		<property name="state" value="Haryana"/>
+		<property name="zipcode" value="125001"/>
+	</bean>-->
+	
+<!--Auto wire by name when id of address bean matches the name of the variable (property) of student -->	
+	<!--<bean id="stud" class="com.pack.reference.Student" autowire="byName">
+		<property name="id" value="80"/>
+		<property name="name" value="Yogesh"/>
+		<property name="age" value="10"/>
+	</bean>
+	
+	<bean id="address" class="com.pack.reference.Address">
+		<property name="city" value="Hisar"/>
+		<property name="state" value="Haryana"/>
+		<property name="zipcode" value="125001"/>
+	</bean>
+-->	
+	
+<!--Auto wire by type when if the datatype of the property should be somewhere configured inside the xml file -->	
+<!--	<bean id="stud" class="com.pack.reference.Student" autowire="byType">
+		<property name="id" value="80"/>
+		<property name="name" value="Yogesh"/>
+		<property name="age" value="10"/>
+	</bean>
+	
+	<bean id="address1" class="com.pack.reference.Address">
+		<property name="city" value="Hisar"/>
+		<property name="state" value="Haryana"/>
+		<property name="zipcode" value="125001"/>
+	</bean>	-->
+	
+<!--	Auto wire by constuctor similar to by type 	
+	<bean id="stud" class="com.pack.reference.Student" autowire="constructor">
+		
+		<constructor-arg name="id" value="80" />
+		<constructor-arg name="name" value="Yogesh" />
+		<constructor-arg name="age" value="10"/>
+	</bean>
+	
+	<bean id="address1" class="com.pack.reference.Address">
+		<property name="city" value="Hisar"/>
+		<property name="state" value="Haryana"/>
+		<property name="zipcode" value="125001"/>
+	</bean>	
+	-->
+	<!--AutoWire by candiate=false when more then two type off same adddress bean are present so the container will be confused which one to inject-->
+<!--	<bean id="stud" class="com.pack.reference.Student" autowire="constructor">
+		<constructor-arg name="id" value="80" />
+		<constructor-arg name="name" value="Yogesh" />
+		<constructor-arg name="age" value="10"/>
+	</bean>
+	
+	<bean id="address1" class="com.pack.reference.Address" 	autowire-candidate="false">
+		<property name="city" value="Hisar"/>
+		<property name="state" value="Haryana"/>
+		<property name="zipcode" value="125001"/>
+	</bean>
+	
+	<bean id="address2" class="com.pack.reference.Address">
+		<property name="city" value="Hisar2"/>
+		<property name="state" value="Haryana2"/>
+		<property name="zipcode" value="1250012"/>
+	</bean>
+	-->
+	
+	<context:annotation-config/>
+	
+<!--	by constructor
+	<bean id="stud" class="com.pack.annotation.Student">
+		<constructor-arg name="id" value="80" />
+		<constructor-arg name="name" value="Yogesh" />
+		<constructor-arg name="age" value="10"/>
+	</bean>
+	
+	<bean id="address1" class="com.pack.annotation.Address" >
+		<property name="city" value="Hisar"/>
+		<property name="state" value="Haryana"/>
+		<property name="zipcode" value="125001"/>
+	</bean>-->
+	
+	<!--
+	<bean id="stud" class="com.pack.annotation.Student">
+		<property name="id" value="80"/>
+		<property name="name" value="Yogesh"/>
+		<property name="age" value="10"/>
+	</bean>
+	
+	<bean id="address1" class="com.pack.annotation.Address" >
+		<property name="city" value="Hisar"/>
+		<property name="state" value="Haryana"/>
+		<property name="zipcode" value="125001"/>
+	</bean>
+	
+	<bean id="address2" class="com.pack.annotation.Address" >
+		<property name="city" value="Hisar2"/>
+		<property name="state" value="Haryana2"/>
+		<property name="zipcode" value="1250012"/>
+	</bean>-->
+	
+	<bean id="sample1" class="com.pack.annotation.Sample" lazy-init="true"/>
+	<bean id="sample2" class="com.pack.annotation.Sample2" lazy-init="true">
+		<property name="sample" ref="sample1"/>
+	</bean>	
+	
+</beans>
